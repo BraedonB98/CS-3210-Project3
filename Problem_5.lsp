@@ -17,5 +17,7 @@
         NIL)))
 
     ;;Example
-(let ((x t) (y nil))
-    (format t "XO of ~A and ~A is: ~A~%" x y (boolean-xor x y)))
+(print (boolean-xor t t)) ; Should print NIL
+(print (boolean-xor NIL t)) ; Should print T
+(print (boolean-xor t NIL)) ; Should print T
+(print (boolean-xor NIL NIL)) ; Should print NIL

@@ -24,9 +24,7 @@
         (set-member (cdr set) item))))
 
 ;; Example usage
-  (setq my-set '(1 2 3 4 5))
-  (setq a 3)
-  (setq b 6)
-
-  (format t "Is ~A in the set? ~A~%" a (set-member my-set a)) ; Should return T
-  (format t "Is ~A in the set? ~A~%" b (set-member my-set b)) ; Should return NIL
+ 
+  (set-member '(1 2 3 4 5) 1) ; Should return T
+  (print (set-member '(1 2 3 4 5) 1) ) ;; So it can print T
+  

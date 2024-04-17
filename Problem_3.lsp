@@ -17,8 +17,5 @@
         (t (set-intersection (cdr set-1) set-2)))) ; Otherwise, recur with the rest of set-1
 
 ;; Example usage
-(let ((result (set-intersection '(1 2 3 4 5) '(2 3 4 5 6 7))))
-  (if result
-      (write result)
-      (write "No intersection found")))
-
+(print (set-intersection '(1 2 3 4 5) '(2 3 4 5 6 7)))
+  
