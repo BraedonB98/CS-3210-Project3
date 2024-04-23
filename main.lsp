@@ -3,19 +3,22 @@
 (defun set-member (set item)
   (if (EQUAL set () ) ;; Base case: If the set is empty, return NIL
       NIL
-    (or (eq item (car set) ) ;; Check if the item matches the first element of the set
-        (set-member (cdr set) item)))) ;; If not, recursively check the rest of the set
+    (or (EQUAL item (CAR set) ) ;; Check if the item matches the first element of the set
+        (set-member (CDR set) item)))) ;; If not, recursively check the rest of the set
 
 
 ;; Return the union of set-1 and set-2.
 ;; The result should contain no duplicates.
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
-;; Examples:
-;;   (set-union '(1 2) '(2 4)) => '(1 2 4)
+;; Examples:(set-union '(1 2) '(2 4)) => '(1 2 4)
 (defun set-union (set-1 set-2)
-  ;;Your implementation go here
-)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (cond ((set-member set-2 (CAR set-1)) (set-union (CDR set-1) set-2))
+	;;If 1st entry of set-1 is in set 2, calls set-union with remainder of set-1
+	((EQUAL () set-1) set-2) ;;If set-1 is null, returns set-2
+	(t (cons (CAR set-1) (set-union (CDR set-1) set-2)))))
+        ;;If neither of previous statements  trigger, adds 1st element of set-1 to list
+        ;;constructed recursively
+
 ;; Return the intersection of set-1 and set-2.
 ;; The result should contain no duplicates.
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
