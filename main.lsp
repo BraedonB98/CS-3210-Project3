@@ -45,15 +45,11 @@
     ;;If neither of previous statements  trigger, adds 1st element of set-1 to list
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Return the exclusive or of a and b
-;;
-;; Examples:
-;;  (boolean-xor t nil) => t
-;;  (boolean-xor nil nil) => nil
+;; Examples:      (boolean-xor t nil) => t        (boolean-xor nil nil) => nil
 (defun boolean-xor (a b)
-  ;;Your implementation go here
-)
+  (if (and a (not b))
+    (if (and (not a) b))) t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Return the implication of a and b
 ;;
