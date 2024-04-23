@@ -58,15 +58,16 @@
   )
 
 
+
 ;; Return the bi-implication (if and only if) of a and b
-;;
-;; Examples:
-;;  (boolean-iff t nil) => nil
-;;  (boolean-iff nil nil) => t
+;; Examples:  (boolean-iff t nil) => nil       (boolean-iff nil nil) => t
+;;Only False when A =/= B. True if both are true, or both are false.
 (defun boolean-iff (a b)
-;;<Your implementation go here >
-)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (EQUAL a b))
+
+
+
+
 ;; Evaluate a boolean expression.
 ;; Handle NOT, AND, OR, XOR, IMPLIES, and IFF.
 ;;
@@ -74,5 +75,5 @@
 ;;  (boolean-eval '(and t nil)) => nil
 ;;  (boolean-eval '(and t (or nil t)) => t
 (defun boolean-eval (exp)
-;;<Your implementation go here >
+   
 )
