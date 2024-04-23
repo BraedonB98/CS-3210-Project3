@@ -45,21 +45,19 @@
     ;;If neither of previous statements  trigger, adds 1st element of set-1 to list
 
 
-;; Return the exclusive or of a and b
+;; Return the exclusive or of a and b.
 ;; Examples:      (boolean-xor t nil) => t        (boolean-xor nil nil) => nil
 (defun boolean-xor (a b)
-  (if (and a (not b))
-    (if (and (not a) b))) t)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Return the implication of a and b
-;;
-;; Examples:
-;;  (boolean-implies t nil) => nil
-;;  (boolean-implies nil nil) => t
+  (OR (AND a (NOT b)) (AND (NOT a) b))) ;;Either a (not b) or b (not a).
+
+
+;; Return the implication of a and b. A implies B. Only false when A is true, B is false.
+;; Examples:   (boolean-implies t nil) => nil        (boolean-implies nil nil) => t
 (defun boolean-implies (a b)
-;;<Your implementation go here >
-)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (OR (NOT a) b) ;;True when b is true. True if a is false. False if a is true, b is false.
+  )
+
+
 ;; Return the bi-implication (if and only if) of a and b
 ;;
 ;; Examples:
