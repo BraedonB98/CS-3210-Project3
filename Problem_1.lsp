@@ -25,5 +25,5 @@
 
 ;; Example usage
  
-  (set-member '(1 2 3 4 5) 1) ; Should return T
-  (print (set-member '(1 2 3 4 5) 1) ) ;; So it can print T
+ ;; (set-member '(1 2 3 4 5) 1) ; Should return T
+ ;; (print (set-member '(1 2 3 4 5) 1) ) ;; So it can print T
