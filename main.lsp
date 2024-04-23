@@ -12,11 +12,11 @@
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
 ;; Examples:(set-union '(1 2) '(2 4)) => '(1 2 4)
 (defun set-union (set-1 set-2)
-  (cond
+  (COND
     ((set-member set-2 (CAR set-1)) (set-union (CDR set-1) set-2))
     ;;If 1st entry of set-1 is in set 2, calls set-union with remainder of set-1
     ((EQUAL '() set-1) set-2) ;;If set-1 is null, returns set-2
-    (t (CONS (CAR set-1) (set-union (CDR set-1) set-2)))))
+    (T (CONS (CAR set-1) (set-union (CDR set-1) set-2)))))
     ;;If neither of previous statements  trigger, adds 1st element of set-1 to list
     ;;constructed recursively
 
@@ -25,23 +25,26 @@
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
 ;; Examples: (set-intersection '(1 2) '(2 4)) => '(2)
 (defun set-intersection (set-1 set-2)
-  (cond
-    ((EQUAL '() set-1) nil)  ; If set-1 is empty, return nil
+  (COND
+    ((EQUAL '() set-1) NIL)  ; If set-1 is empty, return nil
     ((set-member set-2 (CAR set-1)) (CONS (CAR set-1) (set-intersection (CDR set-1) set-2)))
     ;;If first element of set 1 is in set 2, adds first element to list created recursively.
-    (t (set-intersection (cdr set-1) set-2)))) ;;If not, recurses with rest of set-1.
+    (T (set-intersection (CDR set-1) set-2)))) ;;If not, recurses with rest of set-1.
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Return the difference of set-1 and set-2.
-;; The result should contain no duplicates.
+
+;; Return the difference of set-1 and set-2. The result should contain no duplicates.
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
-;;
-;; Examples:
-;;   (set-diff '(1 2) '(2 4)) => '(1)
+;; Examples: (set-diff '(1 2) '(2 4)) => '(1)
 (defun set-diff (set-1 set-2)
-  ;;Your implementation go here
-)
+  (COND
+    ((EQUAL '() set-1) NIL) ;;If set 1 is empty, returns nill.
+    ((set-member set-2 (CAR set-1)) (set-diff (CDR set-1) set-2))
+    ;;If 1st entry of set-1 is in set-2, calls set-diff with remainder of set-1.
+    (T (CONS (CAR set-1) (set-diff (CDR set-1) set-2)))))
+    ;;If neither of previous statements  trigger, adds 1st element of set-1 to list
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Return the exclusive or of a and b
 ;;
