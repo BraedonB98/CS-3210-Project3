@@ -1,13 +1,12 @@
-;; Return T if item is a member of set.
-;; Return NIL if item is not a member of set.
-;; The type of set is list.
-;; Examples:
-;;  (set-member '(1 2) 1) => T
-;;  (set-member '(1 2) 3) =>  NIL
+;; Return T if item is a member of list. Return NIL if item is not a member of list.
+;; Examples:  (set-member '(1 2) 1) => T          (set-member '(1 2) 3) =>  NIL
 (defun set-member (set item)
-  ;;Your implementation go here
-)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (if (EQUAL set () ) ;; Base case: If the set is empty, return NIL
+      NIL
+    (or (eq item (car set) ) ;; Check if the item matches the first element of the set
+        (set-member (cdr set) item)))) ;; If not, recursively check the rest of the set
+
+
 ;; Return the union of set-1 and set-2.
 ;; The result should contain no duplicates.
 ;; Assume set-1 contains no duplicates and set-2 contains no duplicates.
