@@ -16,7 +16,7 @@
 
 (defun set-member (set item)
   ;; Base case: If the set is empty, return NIL
-  (if (null set)
+  (if (EQUAL set ())
       NIL
     ;; Check if the item matches the first element of the set
     (or (eq item (car set))
@@ -27,4 +27,3 @@
  
   (set-member '(1 2 3 4 5) 1) ; Should return T
   (print (set-member '(1 2 3 4 5) 1) ) ;; So it can print T
-  
