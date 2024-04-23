@@ -70,10 +70,16 @@
 
 ;; Evaluate a boolean expression.
 ;; Handle NOT, AND, OR, XOR, IMPLIES, and IFF.
+;; We will assume boolean expression is given in lower-case, like the examples below.
 ;;
 ;; Examples:
-;;  (boolean-eval '(and t nil)) => nil
-;;  (boolean-eval '(and t (or nil t)) => t
+;;       (boolean-eval '(and t nil)) => nil     (boolean-eval '(and t (or nil t)) => t
 (defun boolean-eval (exp)
-   
-)
+  (COND
+    ((or (EQUAL exp NIL) (EQUAL exp T)) exp)
+    ((EQUAL (CAR exp) 'not) (NOT (boolean-eval (SECOND exp))))
+    ((EQUAL (CAR exp) 'and) (AND (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp))))
+    ((EQUAL (CAR exp) 'or) (OR (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp))))
+    ((EQUAL (CAR exp) 'xor) (boolean-xor (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp))))
+    ((EQUAL (CAR exp) 'implies) (boolean-implies (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp))))
+    ((EQUAL (CAR exp) 'iff) (boolean-iff (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp))))))
