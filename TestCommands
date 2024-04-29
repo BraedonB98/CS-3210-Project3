@@ -1,0 +1,48 @@
+Set-Member:
+
+(print (set-member '(1 2) 1))  ;; T
+(set-member '(1 2) 3)  ;; NIL
+
+Set-Union:
+
+(set-union '(1 2) '(2 4)) ;Returns (1, 2, 4)
+
+Set-Intersection:
+
+(set-intersection '(1 2 3 4 5) '(2 3 4 5 6 7)) ;;Returns (2, 3, 4, 5)
+
+Set-Difference:
+
+(set-difference '(1 2 3 4 5) '(2 3 4 5 6 7)) ;;Returns 1
+
+Boolean-Xor:
+
+(print (boolean-xor t t)) ; Should print NIL
+(print (boolean-xor NIL t)) ; Should print T
+(print (boolean-xor t NIL)) ; Should print T
+(boolean-xor NIL NIL) ; Should print NIL
+
+Boolean-Implies:
+
+(print (boolean-implies t t)) ; Should print T
+(print (boolean-implies t nil)) ; Should print NIL
+(print (boolean-implies nil t)) ; Should print T
+(boolean-implies nil nil) ; Should print T
+
+Boolean-Iff:
+
+(print (boolean-iff t t)) ; Should print T
+(print (boolean-iff t nil)) ; Should print NIL
+(print (boolean-iff nil t)) ; Should print NIL
+(boolean-iff nil nil) ; Should print T
+  
+Boolean-Eval:
+
+(print (boolean-eval T)) ; Test with a simple boolean value (should print T)
+(print (boolean-eval '(not T))) ; Test with a negation (should print NIL)
+(print (boolean-eval '(and T T))) ; Test with an AND operation (should print T)
+(print (boolean-eval '(or T NIL))) ; Test with an OR operation (should print T)
+(print (boolean-eval '(xor T NIL))) ; Test with an XOR operation (should print T)
+(print (boolean-eval '(implies NIL T))) ; Test with an implication (should print T)
+(print (boolean-eval '(iff T T))) ; Test with a biconditional (IFF) (should print T)
+(boolean-eval '(implies (and T (not NIL)) (or T NIL))) ; Test with a complex expression (should print T)
